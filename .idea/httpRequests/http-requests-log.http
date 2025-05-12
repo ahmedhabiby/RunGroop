@@ -1,0 +1,36 @@
+GET http://localhost:8080/clubs
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-05-08T093854.200.txt
+
+###
+
+GET http://localhost:8080/clubs
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-05-08T093847.200.txt
+
+###
+
+GET http://localhost:8080/clubs
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-05-08T093751.200.txt
+
+###
+
+GET http://localhost:8080/clubs
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-05-08T093739.200.txt
+
+###
+
