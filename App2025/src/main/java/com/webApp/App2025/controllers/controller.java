@@ -3,9 +3,11 @@ package com.webApp.App2025.controllers;
 import com.webApp.App2025.dto.clubdto;
 import com.webApp.App2025.models.club;
 import com.webApp.App2025.services.clubservice;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +39,10 @@ public class controller {
     }
 
     @PostMapping("/clubs/new")
-    public String saveclubs(@ModelAttribute("club")club c1){
+    public String saveclubs(@Valid @ModelAttribute("club")club c1, BindingResult result){
+        if(result.hasErrors()){
+            return "club-create";
+        }
       cs.save(c1);
       return "redirect:/clubs";
 
@@ -51,10 +56,26 @@ public class controller {
 
     }
     @PostMapping("/clubs/{clubid}/edit")
-    public String updateclub(@PathVariable("clubid") long clubid,@ModelAttribute("club") clubdto cld){
+    public String updateclub(@PathVariable("clubid") long clubid,
+                             @Valid @ModelAttribute("club") clubdto cld,  BindingResult result){
+        if(result.hasErrors()){
+            return "club-edit";
+        }
 
     cld.setId(clubid);
     cs.update(cld);
     return "redirect:/clubs";
+    }
+    @GetMapping("/clubs/{clubid}")
+    public String clubDetails(@PathVariable("clubid") long clubid, Model model){
+        clubdto cld=cs.findbyid(clubid);
+        model.addAttribute("club",cld);
+        return "club-details";
+    }
+    @GetMapping("/clubs/{clubid}/delete")
+    public String delete(@PathVariable("clubid") long clubid, Model model){
+        model.addAttribute("club",clubid);
+        cs.deletbyid(clubid);
+        return "redirect:/clubs";
     }
 }

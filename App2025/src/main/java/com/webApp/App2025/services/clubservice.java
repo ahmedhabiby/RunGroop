@@ -12,4 +12,6 @@ public interface clubservice {
     clubdto findbyid(long clubid);
 
     void update(clubdto cld);
+
+    void deletbyid(long clubid);
 }

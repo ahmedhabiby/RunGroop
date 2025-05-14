@@ -39,6 +39,11 @@ public class implementation implements clubservice {
         jr.save(cl);
     }
 
+    @Override
+    public void deletbyid(long clubid) {
+        jr.deleteById(clubid);
+    }
+
     private club maptoclubdto(clubdto cld) {
         club cv= club.builder()
                 .id(cld.getId())
